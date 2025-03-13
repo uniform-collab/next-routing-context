@@ -11,24 +11,24 @@ type Metrics = Record<
 
 const getRatingColor = (rating: string) => {
   switch (rating) {
-    case 'good':
-      return 'text-green-500';
-    case 'needs-improvement':
-      return 'text-yellow-500';
-    case 'poor':
-      return 'text-red-500';
+    case "good":
+      return "text-green-500";
+    case "needs-improvement":
+      return "text-yellow-500";
+    case "poor":
+      return "text-red-500";
     default:
-      return 'text-gray-500';
+      return "text-gray-500";
   }
 };
 
 export default function WebVitals() {
   const [metrics, setMetrics] = useState<Metrics>({
+    TTFB: null,
     FCP: null,
     LCP: null,
-    CLS: null,
     FID: null,
-    TTFB: null,
+    CLS: null,
     INP: null,
   });
 
@@ -64,15 +64,30 @@ export default function WebVitals() {
   return (
     <div className="flex flex-wrap gap-4 p-4 bg-white rounded-lg shadow">
       {Object.entries(metrics).map(([key, metric]) => (
-        <div key={key} className="flex flex-col items-center p-3 border rounded-lg min-w-[120px]">
+        <div
+          key={key}
+          className="flex flex-col items-center p-3 border rounded-lg min-w-[120px]"
+        >
           <div className="text-sm font-semibold text-gray-600">{key}</div>
-          <div className={`text-lg font-bold ${metric ? getRatingColor(metric.rating) : 'text-gray-400'}`}>
-            {key === 'CLS' 
-              ? (metric ? metric.value.toFixed(3) : 'N/A')
-              : (metric ? `${Math.round(metric.value)}ms` : 'N/A')}
+          <div
+            className={`text-lg font-bold ${
+              metric ? getRatingColor(metric.rating) : "text-gray-400"
+            }`}
+          >
+            {key === "CLS"
+              ? metric
+                ? metric.value.toFixed(3)
+                : "N/A"
+              : metric
+              ? `${Math.round(metric.value)}ms`
+              : "N/A"}
           </div>
-          <div className={`text-xs ${metric ? getRatingColor(metric.rating) : 'text-gray-400'}`}>
-            {metric?.rating || 'pending'}
+          <div
+            className={`text-xs ${
+              metric ? getRatingColor(metric.rating) : "text-gray-400"
+            }`}
+          >
+            {metric?.rating || "pending"}
           </div>
         </div>
       ))}
