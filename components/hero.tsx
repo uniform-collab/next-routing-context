@@ -12,8 +12,18 @@ export const HeroComponent = ({
 }: ComponentProps<HeroProps>) => {
   return (
     <>
-      <UniformText component={component} parameter={title} className="title" />
-      <UniformRichText component={component} parameter={description} />
+      <UniformText
+        component={component}
+        parameter={title}
+        className="title"
+        placeholder={"title goes here"}
+        as="h1"
+      />
+      <UniformRichText
+        component={component}
+        parameter={description}
+        placeholder={"description goes here"}
+      />
     </>
   );
 };
