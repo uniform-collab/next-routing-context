@@ -52,24 +52,24 @@ export default function WebVitals() {
   return (
     <>
       <h2>
-        TTFB: {metrics.TTFB ? Math.round(metrics.TTFB.value) : 0}ms (
-        {metrics.TTFB?.rating})
+        TTFB: {metrics.TTFB ? `${Math.round(metrics.TTFB.value)}ms` : "N/A"} (
+        {metrics.TTFB ? metrics.TTFB?.rating : ""})
       </h2>
       <h2>
-        FCP: {metrics.FCP ? Math.round(metrics.FCP.value) : 0}ms (
-        {metrics.FCP?.rating})
+        FCP: {metrics.FCP ? `${Math.round(metrics.FCP.value)}ms` : "N/A"} (
+        {metrics.FCP ? metrics.FCP?.rating : ""})
       </h2>
       <h2>
-        LCP: {metrics.LCP ? Math.round(metrics.LCP.value) : 0}ms (
-        {metrics.LCP?.rating})
+        LCP: {metrics.LCP ? `${Math.round(metrics.LCP.value)}ms` : "N/A"} (
+        {metrics.LCP ? metrics.LCP?.rating : ""})
       </h2>
       <h2>
-        CLS: {metrics.CLS ? Math.round(metrics.CLS.value) : 0} (
-        {metrics.CLS?.rating})
+        CLS: {metrics.CLS ? `${Math.round(metrics.CLS.value)}` : "N/A"} (
+        {metrics.CLS ? metrics.CLS?.rating : ""})
       </h2>
       <h2>
-        FID: {metrics.FID ? Math.round(metrics.FID.value) : 0}ms (
-        {metrics.FID?.rating})
+        FID: {metrics.FID ? `${Math.round(metrics.FID.value)}ms` : "N/A"} (
+        {metrics.FID ? metrics.FID?.rating : ""})
       </h2>
     </>
   );
