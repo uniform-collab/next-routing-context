@@ -6,8 +6,9 @@ import {
 } from "@uniformdev/canvas-next-rsc-v2/component";
 
 export const HeroComponent = ({
-  title,
-  description,
+  parameters: { title, description },
+  // you can get variant if needed
+  // variant,
   component,
 }: ComponentProps<HeroProps>) => {
   return (
