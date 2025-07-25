@@ -7,7 +7,10 @@ import { notFound } from "next/navigation";
 
 import { resolveComponent } from "../../../components/resolveComponent";
 
-export { generateStaticParams } from "@uniformdev/canvas-next-rsc-v2";
+// enables ISR
+export const generateStaticParams = async () => {
+  return [];
+};
 
 export default async function UniformPage(props: UniformPageParameters) {
   const result = await resolveRouteFromCode(props);
